@@ -1,7 +1,7 @@
 {
   "name": "coingecko-angular",
-  "version": "1.0.0",
-  "description": "Coingecko api generated with openapi-generator typescript-angular",
+  "version": "1.0.1",
+  "description": "Coingecko api wrapper generated with openapi-generator typescript-angular",
   "main": "index.js",
   "scripts": {
     "test": "\"test\": \"echo \\\"No tests specified\\\" && exit 0\""

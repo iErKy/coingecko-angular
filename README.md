@@ -60,12 +60,12 @@ In your Angular project:
 
 ```
 // without configuring providers
-import { ApiModule } from '';
+import { CoinGeckoApiModule } from '';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     imports: [
-        ApiModule,
+        CoinGeckoApiModule,
         // make sure to import the HttpClientModule in the AppModule only,
         // see https://github.com/angular/angular/issues/20575
         HttpClientModule
@@ -79,7 +79,7 @@ export class AppModule {}
 
 ```
 // configuring providers
-import { ApiModule, Configuration, ConfigurationParameters } from '';
+import { CoinGeckoApiModule, Configuration, ConfigurationParameters } from '';
 
 export function apiConfigFactory (): Configuration {
   const params: ConfigurationParameters = {
@@ -89,7 +89,7 @@ export function apiConfigFactory (): Configuration {
 }
 
 @NgModule({
-    imports: [ ApiModule.forRoot(apiConfigFactory) ],
+    imports: [ CoinGeckoApiModule.forRoot(apiConfigFactory) ],
     declarations: [ AppComponent ],
     providers: [],
     bootstrap: [ AppComponent ]
@@ -99,10 +99,10 @@ export class AppModule {}
 
 ```
 // configuring providers with an authentication service that manages your access tokens
-import { ApiModule, Configuration } from '';
+import { CoinGeckoApiModule, Configuration } from '';
 
 @NgModule({
-    imports: [ ApiModule ],
+    imports: [ CoinGeckoApiModule ],
     declarations: [ AppComponent ],
     providers: [
       {
@@ -130,23 +130,23 @@ export class AppComponent {
 }
 ```
 
-Note: The ApiModule is restricted to being instantiated once app wide.
+Note: The CoinGeckoApiModule is restricted to being instantiated once app wide.
 This is to ensure that all services are treated as singletons.
 
-#### Using multiple OpenAPI files / APIs / ApiModules
+#### Using multiple OpenAPI files / APIs / CoinGeckoApiModules
 
-In order to use multiple `ApiModules` generated from different OpenAPI files,
+In order to use multiple `CoinGeckoApiModules` generated from different OpenAPI files,
 you can create an alias name when importing the modules
 in order to avoid naming conflicts:
 
 ```
-import { ApiModule } from 'my-api-path';
-import { ApiModule as OtherApiModule } from 'my-other-api-path';
+import { CoinGeckoApiModule } from 'my-api-path';
+import { CoinGeckoApiModule as OtherApiModule } from 'my-other-api-path';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
-    ApiModule,
+    CoinGeckoApiModule,
     OtherApiModule,
     // make sure to import the HttpClientModule in the AppModule only,
     // see https://github.com/angular/angular/issues/20575

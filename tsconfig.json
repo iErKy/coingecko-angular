@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "target": "es2022",
+        "lib": ["es2022"],
+        "strict": true,
+        "experimentalDecorators": true,
+        "noUncheckedIndexedAccess": true,
+        "noImplicitOverride": true,
+        "module": "esnext",
+        "outDir": "dist",
+        "rootDir": ".",
+        "baseUrl": ".",
+        "sourceMap": true,
+        "moduleResolution": "node",
+        "composite": true,
+        "declaration": true,
+        "declarationMap": true
+    },
+    "exclude": ["node_modules"]
+}

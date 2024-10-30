@@ -1,6 +1,6 @@
 {
   "name": "@ierky/coingecko-angular",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Coingecko api wrapper generated with openapi-generator typescript-angular",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/iErKy/coingecko-angular"
+    "url": "git+https://github.com/iErKy/coingecko-angular.git"
   },
   "homepage": "https://github.com/iErKy/coingecko-angular",
   "bugs": {

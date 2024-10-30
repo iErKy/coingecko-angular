@@ -22,7 +22,6 @@ jobs:
 
             # Install dependencies and build the package if necessary
             - run: npm ci
-            - run: npm run prepare
 
             # Publish to npm
             - run: npm publish --provenance --access public --dry-run

@@ -4,7 +4,7 @@
   "description": "Coingecko api wrapper generated with openapi-generator typescript-angular",
   "main": "index.js",
   "scripts": {
-    "test": "\"test\": \"echo \\\"No tests specified\\\" && exit 0\"",
+    "test": "echo \"No tests specified\" && exit 0",
     "build": "tsc",
     "prepare": "npm run build",
     "check-exports": "attw --pack ."

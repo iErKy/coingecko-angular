@@ -2,10 +2,11 @@
   "name": "@ierky/coingecko-angular",
   "version": "1.0.7",
   "description": "Coingecko api wrapper generated with openapi-generator typescript-angular",
-  "main": "dist/index.js",
+  "main": "src/index.ts",
   "scripts": {
     "test": "echo \"No tests specified\" && exit 0",
     "build": "tsc",
+    "build:declarations": "tsc --emitDeclarationOnly",
     "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm"
   },
   "keywords": [
@@ -20,9 +21,11 @@
     "type": "git",
     "url": "git+https://github.com/iErKy/coingecko-angular.git"
   },
-  "types": "dist/index.d.ts",
+  "types": "src/index.d.ts",
   "files": [
-    "dist/"
+    "src/**/*.ts",
+    "README.md",
+    "LICENSE"
   ],
   "homepage": "https://github.com/iErKy/coingecko-angular",
   "bugs": {

@@ -9,14 +9,14 @@
         "noUncheckedIndexedAccess": true,
         "noImplicitOverride": true,
         "module": "esnext",
-        "outDir": "./dist",
+        "outDir": ".",
         "rootDir": ".",
         "baseUrl": ".",
         "sourceMap": true,
         "moduleResolution": "node",
         "composite": true,
-        "declaration": true,
-        "declarationMap": true
+        "declaration": true
     },
+    "include": ["./**/*.ts"],
     "exclude": ["node_modules", "dist"]
 }

@@ -1,6 +1,6 @@
 {
   "name": "@ierky/coingecko-angular",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Coingecko api wrapper generated with openapi-generator typescript-angular",
   "main": "dist/index.js",
   "scripts": {

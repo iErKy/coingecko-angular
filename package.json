@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"No tests specified\" && exit 0",
     "build": "tsc",
-    "ci": "npm run build",
     "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm"
   },
   "keywords": [

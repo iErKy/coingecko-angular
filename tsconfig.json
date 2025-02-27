@@ -9,7 +9,7 @@
         "noUncheckedIndexedAccess": true,
         "noImplicitOverride": true,
         "module": "esnext",
-        "outDir": "dist",
+        "outDir": "./dist",
         "rootDir": ".",
         "baseUrl": ".",
         "sourceMap": true,

@@ -23,9 +23,9 @@ jobs:
 
             # Build the package
             - name: Build package
-              run: npm run build:declarations
+              run: npm run build:prod
               
             # Publish to npm
-            - run: npm publish --provenance --access public
+            - run: npm publish --workspace projects/coingecko-angular --provenance --access public
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

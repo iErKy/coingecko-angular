@@ -1,42 +1,28 @@
 {
-  "name": "@ierky/coingecko-angular",
-  "version": "1.0.8",
+  "name": "coingecko-angular",
+  "version": "1.0.9",
   "description": "Coingecko api wrapper generated with openapi-generator typescript-angular",
-  "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"No tests specified\" && exit 0",
-    "build": "tsc",
-    "build:declarations": "tsc --emitDeclarationOnly",
-    "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm"
+    "build": "ng build coingecko-angular",
+    "build:prod": "ng build coingecko-angular --configuration production",
+    "watch:development": "ng build --watch --configuration development",
+    "watch:production": "ng build --watch --configuration production",
+    "test": "ng test"
   },
-  "keywords": [
-    "coingecko",
-    "cryptocurrency",
-    "api",
-    "typescript-angular"
+  "workspaces": [
+    "projects/*"
   ],
-  "author": "Alex Riera",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/iErKy/coingecko-angular.git"
-  },
-  "types": "src/index.d.ts",
-  "files": [
-    "src/**/*.ts",
-    "README.md",
-    "LICENSE"
-  ],
-  "homepage": "https://github.com/iErKy/coingecko-angular",
-  "bugs": {
-    "url": "https://github.com/iErKy/coingecko-angular/issues"
-  },
+  "private": true,
   "dependencies": {
-    "@angular/common": "^18.2.9",
-    "@angular/core": "^18.2.9",
+    "@angular/common": "^19.2.0",
+    "@angular/core": "^19.2.0",
     "rxjs": "^7.8.1"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^19.2.0",
+    "@angular/cli": "^19.1.8",
+    "@angular/compiler-cli": "^19.1.0",
+    "ng-packagr": "^19.2.0",
     "@arethetypeswrong/cli": "^0.16.4",
     "typescript": "^5.6.3"
   }

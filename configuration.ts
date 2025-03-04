@@ -1,7 +1,7 @@
-import { HttpParameterCodec } from '@angular/common/http';
+import { HttpHeaders, HttpParams, HttpParameterCodec } from '@angular/common/http';
 import { Param } from './param';
 
-export interface ConfigurationParameters {
+export interface CoinGeckoConfigurationParameters {
     /**
      *  @deprecated Since 5.0. Use credentials instead
      */
@@ -34,7 +34,7 @@ export interface ConfigurationParameters {
     credentials?: {[ key: string ]: string | (() => string | undefined)};
 }
 
-export class Configuration {
+export class CoinGeckoConfiguration {
     /**
      *  @deprecated Since 5.0. Use credentials instead
      */
@@ -66,7 +66,7 @@ export class Configuration {
      */
     credentials: {[ key: string ]: string | (() => string | undefined)};
 
-    constructor(configurationParameters: ConfigurationParameters = {}) {
+    constructor(configurationParameters: CoinGeckoConfigurationParameters = {}) {
         this.apiKeys = configurationParameters.apiKeys;
         this.username = configurationParameters.username;
         this.password = configurationParameters.password;
@@ -112,7 +112,7 @@ export class Configuration {
 
     /**
      * Select the correct content-type to use for a request.
-     * Uses {@link Configuration#isJsonMime} to determine the correct content-type.
+     * Uses {@link CoinGeckoConfiguration#isJsonMime} to determine the correct content-type.
      * If no content type is found return the first found type if the contentTypes is not empty
      * @param contentTypes - the array of content types that are available for selection
      * @returns the selected content-type or <code>undefined</code> if no selection could be made.
@@ -131,7 +131,7 @@ export class Configuration {
 
     /**
      * Select the correct accept content-type to use for a request.
-     * Uses {@link Configuration#isJsonMime} to determine the correct accept content-type.
+     * Uses {@link CoinGeckoConfiguration#isJsonMime} to determine the correct accept content-type.
      * If no content type is found return the first found type if the contentTypes is not empty
      * @param accepts - the array of content types that are available for selection.
      * @returns the selected content-type or <code>undefined</code> if no selection could be made.
@@ -168,6 +168,20 @@ export class Configuration {
         return typeof value === 'function'
             ? value()
             : value;
+    }
+
+    public addCredentialToHeaders(credentialKey: string, headerName: string, headers: HttpHeaders, prefix?: string): HttpHeaders {
+        const value = this.lookupCredential(credentialKey);
+        return value
+            ? headers.set(headerName, (prefix ?? '') + value)
+            : headers;
+    }
+
+    public addCredentialToQuery(credentialKey: string, paramName: string, query: HttpParams): HttpParams {
+        const value = this.lookupCredential(credentialKey);
+        return value
+            ? query.set(paramName, value)
+            : query;
     }
 
     private defaultEncodeParam(param: Param): string {

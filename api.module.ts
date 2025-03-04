@@ -1,5 +1,5 @@
 import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core';
-import { Configuration } from './configuration';
+import { CoinGeckoConfiguration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -10,10 +10,10 @@ import { HttpClient } from '@angular/common/http';
   providers: []
 })
 export class CoinGeckoApiModule {
-    public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders<CoinGeckoApiModule> {
+    public static forRoot(configurationFactory: () => CoinGeckoConfiguration): ModuleWithProviders<CoinGeckoApiModule> {
         return {
             ngModule: CoinGeckoApiModule,
-            providers: [ { provide: Configuration, useFactory: configurationFactory } ]
+            providers: [ { provide: CoinGeckoConfiguration, useFactory: configurationFactory } ]
         };
     }
 

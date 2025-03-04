@@ -1,29 +1,43 @@
 {
-  "name": "coingecko-angular",
-  "version": "1.0.9",
+  "name": "@ierky/coingecko-angular",
+  "version": "1.0.11",
   "description": "Coingecko api wrapper generated with openapi-generator typescript-angular",
-  "scripts": {
-    "build": "ng build coingecko-angular",
-    "build:prod": "ng build coingecko-angular --configuration production",
-    "watch:development": "ng build --watch --configuration development",
-    "watch:production": "ng build --watch --configuration production",
-    "test": "ng test"
-  },
-  "workspaces": [
-    "projects/*"
+  "keywords": [
+    "coingecko",
+    "cryptocurrency",
+    "api",
+    "typescript-angular"
   ],
-  "private": true,
-  "dependencies": {
-    "@angular/common": "^19.2.0",
-    "@angular/core": "^19.2.0",
-    "rxjs": "^7.8.1"
+  "author": "Alex Riera",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iErKy/coingecko-angular.git"
+  },
+  "homepage": "https://github.com/iErKy/coingecko-angular",
+  "bugs": {
+    "url": "https://github.com/iErKy/coingecko-angular/issues"
+  },
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json",
+    "clean": "if exist api rd /s /q api && if exist model rd /s /q model && del /q configuration.ts encoder.ts api.module.ts variables.ts param.ts index.ts 2>nul || exit 0",
+    "generate": "npm run clean && npx @openapitools/openapi-generator-cli generate -i openapi.json -g typescript-angular -o . --additional-properties=ngVersion=19.0.0,modelPropertyNaming=original,fileNaming=kebab-case,serviceSuffix=Service,configurationPrefix=CoinGecko,apiModulePrefix=CoinGecko,removeOperationIdPrefix=true,useHttpClient=true,useModulePrefix=true,providedIn=root,useStandalone=true,ignoreFileOverride=.openapi-generator-ignore"
+  },
+  "peerDependencies": {
+    "@angular/core": "^19.0.0",
+    "@angular/common": "^19.0.0",
+    "rxjs": "^7.4.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^19.2.0",
-    "@angular/cli": "^19.1.8",
-    "@angular/compiler-cli": "^19.1.0",
-    "ng-packagr": "^19.2.0",
-    "@arethetypeswrong/cli": "^0.16.4",
-    "typescript": "^5.6.3"
+    "@angular/common": "^19.0.0",
+    "@angular/compiler": "^19.0.0",
+    "@angular/compiler-cli": "^19.0.0",
+    "@angular/core": "^19.0.0",
+    "@angular/platform-browser": "^19.0.0",
+    "ng-packagr": "^19.0.0",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "^7.4.0",
+    "typescript": ">=5.5.0 <5.7.0",
+    "zone.js": "^0.15.0"
   }
 }
